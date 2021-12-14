@@ -86,7 +86,7 @@
 
  마지막으로 text generation 부분입니다. 결국, 잘 학습된 모델을 통해 요약문을 생성하기 위해서는 generation module이 필요합니다. 자연어를 생성하는 decoding 전략은 여러가지가 존재합니다. 대표적으로 가장 높은 확률의 단어를 채택하는 greedy search, 숨겨진 높은 확률의 토큰들도 후보로 고려하는 beam search 와 같은 최대확률에 기반을 두는 전략이 있습니다. 이에 반해 좀 더 다양한 토큰의 출현을 장려하기위한 sampling의 전략도 존재합니다.
 
-![gb](https://user-images.githubusercontent.com/55730591/145988872-d1a26f88-83b7-48b4-9b5a-bba89737a096.png)
+![gb](https://user-images.githubusercontent.com/55730591/145991802-443ee978-abb5-4924-baff-af645377c3cd.png)
 
 <br/>
  대회의 결과물 제출에 있어서 이러한 다양한 전략들 중에서 어떠한 전략이 더 좋은 결과를 보여주는지 실험해볼 필요가 있었습니다. 초반에는 beam size를 3개정도로 주어가며 확률 기반의 전략을 취해 고확률의 토큰이 추출되면서도 후보군들을 고려하도록 했습니다. 동시에 동일한 n-gram의 무분별한 반복출현을 막기위해 3개이상의 n-gram이 중복되는 경우에 대해서 n-gram panelty를 적용했습니다. 하지만 거듭된 실험을 통해 beam size의 증가가 오히려 성능의 저하를 일으킨다는 점을 깨달았고, 결국은 greedy search를 사용해 점수를 크게 높였습니다. 이 과정에서 제가 Sampling 전략을 배제한 이유는, 일반적으로 sampling은 지도학습이 아닌 open source generation의 환경에 적합하다고 알려져있기 때문입니다.
