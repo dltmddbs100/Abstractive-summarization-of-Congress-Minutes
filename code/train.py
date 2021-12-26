@@ -12,7 +12,6 @@ from transformers.optimization import AdamW
 
 from dataset import KoBARTSummaryDataset
 
-
 data_path='./data/'
 model_path='./LG_model/'
 sub_path='./LG_sub/'
