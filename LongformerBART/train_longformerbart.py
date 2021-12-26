@@ -18,6 +18,7 @@ from transformers.optimization import AdamW
 from dataset import KoBARTSummaryDataset
 from longformerbart import LongformerEncoderDecoderConfig, LongformerSelfAttentionForBart
 
+
 data_path='./data/'
 model_path='./LG_model/'
 sub_path='./LG_sub/'
@@ -253,7 +254,7 @@ sub=pd.read_csv(data_path+'sample_submission.csv')
 sub['summary']=test_sum_sent
 
 
-# View result
+# view results
 test_real=pd.read_csv(data_path+'test_evi_final.csv')
 
 id=27
